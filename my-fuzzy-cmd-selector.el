@@ -42,7 +42,8 @@
   (unless mfcs-commands (error "mfcs-commands is empty"))
   (-let* ((chosen-desc (ivy-read "Command: "
                                  (-map #'mfcs--get-desc mfcs-commands)
-                                 :require-match t)))
+                                 :require-match t
+                                 :caller :mfcs-call)))
     (->> mfcs-commands
          (-first (lambda (x) (string= (funcall #'mfcs--get-desc x) chosen-desc)))
          mfcs--get-func
