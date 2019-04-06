@@ -47,7 +47,7 @@
     (->> mfcs-commands
          (-first (lambda (x) (string= (funcall #'mfcs--get-desc x) chosen-desc)))
          mfcs--get-func
-         funcall-interactively)))
+         call-interactively)))
 
 (provide 'my-fuzzy-cmd-selector)
 ;; my-fuzzy-cmd-selector.el ends here
