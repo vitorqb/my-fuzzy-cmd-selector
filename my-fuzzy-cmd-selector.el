@@ -36,6 +36,10 @@
                      mfcs-commands))
     (cl-pushnew `(:description ,description :command ,command) mfcs-commands)))
 
+(cl-defun mfcs-remove-command (&key description)
+  "Removes a command from mfcs-commands."
+  (setq mfcs-commands (cl-delete-if (lambda (x) (string= (mfcs--get-desc x) description)) mfcs-commands)))
+
 (defun mfcs-call ()
   "Prompts the user to select from mfcs-commands and runs the selected function"
   (interactive)
